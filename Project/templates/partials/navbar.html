@@ -1,0 +1,30 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">{% trans "BeatMotion" %}</a>
+  
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">{% trans "Home" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">{% trans "Products" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">{% trans "Services" %}</a>
+          </li>
+        </ul>
+  
+        <!-- Language Switcher -->
+        <form action="{% url 'set_language' %}" method="post" class="d-flex ms-3">
+          {% csrf_token %}
+          <select name="language" class="form-select form-select-sm me-2" onchange="this.form.submit()">
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>EN</option>
+            <option value="uk" {% if LANGUAGE_CODE == 'uk' %}selected{% endif %}>UA</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </nav>
+  

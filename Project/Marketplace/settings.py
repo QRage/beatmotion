@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 ENV_PATH = BASE_DIR / ".env"
 load_dotenv(ENV_PATH)
@@ -17,6 +17,7 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,7 @@ ROOT_URLCONF = 'Marketplace.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +92,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = [
+    ('en', 'English'),
+    ('uk', 'Українська'),
+]
+
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
