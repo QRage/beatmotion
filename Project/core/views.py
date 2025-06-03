@@ -4,6 +4,6 @@ from pathlib import Path
 
 
 def home_view(request):
-    BASE_DIR = Path(__file__).resolve().parent.parent  # ← = Project
+    BASE_DIR = Path(__file__).resolve().parent.parent
     base_path = BASE_DIR / 'templates' / 'base.html'
     return render(request, 'core/home.html')

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{% trans "Product List" %}</h2>
+    {% for product in products %}
+      <div>
+        <strong>{{ product.title }}</strong> — {{ product.price }}₴
+      </div>
+    {% empty %}
+      <p>{% trans "No products yet." %}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
