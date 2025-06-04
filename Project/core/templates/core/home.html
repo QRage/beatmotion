@@ -6,18 +6,24 @@
     <h2>{% trans "Products" %}</h2>
     <div class="row">
       {% for product in products %}
-        <div class="col-md-4 mb-3">
-          <div class="card h-100">
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <a href="{% url 'product_detail' product.pk %}">
             {% if product.images.first %}
               <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="{{ product.title }}">
             {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">{{ product.title }}</h5>
-              <p class="card-text">{{ product.description|truncatechars:100 }}</p>
-              <p class="text-muted"><strong>{{ product.price }} ₴</strong></p>
-            </div>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'product_detail' product.pk %}" class="text-decoration-none">
+                {{ product.title }}
+              </a>
+            </h5>
+            <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+            <p class="text-muted"><strong>{{ product.price }} ₴</strong></p>
           </div>
         </div>
+      </div>
       {% empty %}
         <p>{% trans "No products available." %}</p>
       {% endfor %}

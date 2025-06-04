@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from .forms import ProductForm, MultiImageForm
+
 from .models import ProductImage, Product
 
 
@@ -30,4 +32,11 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'products/product_list.html', {
         'products': products
+    })
+
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'products/product_detail.html', {
+        'product': product
     })
