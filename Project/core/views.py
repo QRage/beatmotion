@@ -1,9 +1,10 @@
 from django.shortcuts import render
 
-from pathlib import Path
+from products.models import Product
 
 
 def home_view(request):
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    base_path = BASE_DIR / 'templates' / 'base.html'
-    return render(request, 'core/home.html')
+    products = Product.objects.all()
+    return render(request, 'core/home.html', {
+        'products': products
+    })
