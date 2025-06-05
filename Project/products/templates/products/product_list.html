@@ -6,7 +6,11 @@
     <h2>{% trans "Product List" %}</h2>
     {% for product in products %}
       <div>
-        <strong>{{ product.title }}</strong> — {{ product.price }}₴
+        <strong>
+          <a href="{% url 'product_detail' product.id %}">
+            {{ product.title }}
+          </a>
+        </strong> — {{ product.price }}₴
       </div>
     {% empty %}
       <p>{% trans "No products yet." %}</p>

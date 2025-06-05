@@ -4,6 +4,14 @@
 {% block content %}
 <div class="container mt-4">
   <h2>{{ product.title }}</h2>
+  {% if product.category %}
+    <p>
+      {% trans "Category" %}: 
+      <a href="{% url 'products_by_category' product.category.slug %}">
+        {{ product.category.name }}
+      </a>
+    </p>
+  {% endif %}
 
   {% if product.images.all %}
     <div class="row">
