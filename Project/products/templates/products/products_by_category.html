@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <h2>{{ category.name }}</h2>
+  <ul>
+    {% for product in products %}
+      <li>{{ product.title }}</li>
+    {% empty %}
+      <li>{% trans "No products in this category." %}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

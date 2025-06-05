@@ -1,16 +1,27 @@
 from django import forms
-from .models import Product
+from django.utils.translation import gettext_lazy as _
+
+from .models import Product, Category
 from .widgets import MultiFileInput
 
 
 class ProductForm(forms.ModelForm):
+    category = forms.CharField(
+        required=False,
+        label=_("Category"),
+        help_text=_("Enter category name")
+    )
+
     class Meta:
         model = Product
-        fields = ['title', 'description', 'article', 'price', 'in_stock']
+        fields = ['title', 'description', 'price']
+
 
 class MultiImageForm(forms.Form):
-    images = forms.FileField(
-        widget=MultiFileInput,
-        required=False
-    )
-        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['images'] = forms.FileField(
+            widget=MultiFileInput(attrs={"multiple": True}),
+            required=False,
+            label=_("Product images")
+        )

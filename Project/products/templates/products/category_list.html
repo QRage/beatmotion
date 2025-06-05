@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <h2>{% trans "Categories" %}</h2>
+  <ul>
+    {% for category in categories %}
+      <li><a href="{% url 'products_by_category' category.slug %}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
