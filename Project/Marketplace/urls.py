@@ -13,6 +13,7 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('products/', include('products.urls')),
+    path('profile/', include('users.urls')),
 )
 
 if settings.DEBUG:

@@ -29,9 +29,12 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'social_django',
     'core',
     'products',
