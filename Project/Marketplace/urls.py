@@ -14,6 +14,7 @@ urlpatterns += i18n_patterns(
     path('', include('core.urls')),
     path('products/', include('products.urls')),
     path('profile/', include('users.urls')),
+    path('cart/', include('cart.urls', namespace='cart')),
 )
 
 if settings.DEBUG:

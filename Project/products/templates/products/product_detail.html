@@ -4,6 +4,7 @@
 {% block content %}
 <div class="container mt-4">
   <h2>{{ product.title }}</h2>
+  <a href="{% url 'cart:cart_add' product.id %}" class="btn btn-sm btn-outline-primary">{% trans "Add to cart" %}</a>
   {% if product.category %}
     <p>
       {% trans "Category" %}: 
