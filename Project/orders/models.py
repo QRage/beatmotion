@@ -1,27 +1,32 @@
 from django.db import models
-from django.conf import settings
-from products.models import Product
 from django.utils.translation import gettext_lazy as _
+
+from products.models import Product
 
 
 class Order(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
-    full_name = models.CharField(_("Full Name"), max_length=100)
-    phone = models.CharField(_("Phone Number"), max_length=30)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Order #{self.id}"
+        return f"Order #{self.id} by {self.first_name} {self.last_name}"
 
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
+    
+    def add_items_from_cart(self, cart):
+        for item in cart:
+            OrderItem.objects.create(
+                order=self,
+                product=item['product'],
+                price=item['product'].price,
+                quantity=item['quantity']
+            )
 
 
 class OrderItem(models.Model):

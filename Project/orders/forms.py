@@ -1,7 +1,16 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from .models import Order
 
-class OrderCreateForm(forms.Form):
-    full_name = forms.CharField(label=_("Full Name"), max_length=100)
-    phone = forms.CharField(label=_("Phone Number"), max_length=30)
+
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['first_name', 'last_name', 'email', 'phone']
+        labels = {
+            'first_name': _("First name"),
+            'last_name': _("Last name"),
+            'email': _("Email"),
+            'phone': _("Phone number"),
+        }

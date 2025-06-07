@@ -24,12 +24,10 @@ class Cart:
             cart_item = cart.get(pid)
             if cart_item is not None:
                 cart_item["product"] = product
-                # Перевіримо чи є price — якщо ні, додамо
                 if "price" not in cart_item:
                     cart_item["price"] = str(product.price)
 
         for item in cart.values():
-            print("DEBUG ITEM:", item)
             try:
                 item["price"] = Decimal(item["price"])
             except KeyError:
