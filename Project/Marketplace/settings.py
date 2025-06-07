@@ -31,14 +31,18 @@ LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+CART_SESSION_ID = "cart"
+
 # Application definition
 
 INSTALLED_APPS = [
+    'orders',
     'cart',
     'users',
     'social_django',
     'core',
     'products',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

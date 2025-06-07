@@ -19,4 +19,7 @@
     <p>{% trans "Your cart is empty." %}</p>
   {% endif %}
 </div>
+<a href="{% url 'orders:order_create' %}" class="btn btn-success">
+  {% trans "Checkout" %}
+</a>
 {% endblock %}

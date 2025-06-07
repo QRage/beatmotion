@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container mt-4 text-center">
+    <h2>{% trans "Thank you for your order!" %}</h2>
+    <p>{% trans "Your order has been successfully placed." %}</p>
+    <p>{% trans "Order number" %}: <strong>{{ order.id }}</strong></p>
+    <a href="{% url 'product_list' %}" class="btn btn-primary">{% trans "Return to Shop" %}</a>
+  </div>
+{% endblock %}

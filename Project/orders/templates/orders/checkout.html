@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{% trans "Checkout" %}</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">{% trans "Place Order" %}</button>
+    </form>
+
+    <hr>
+
+    <h4>{% trans "Your Cart" %}</h4>
+    <ul>
+      {% for item in cart %}
+        <li>
+          {{ item.product.title }} — {{ item.quantity }} x {{ item.price }}₴ = {{ item.total_price }}₴
+        </li>
+      {% empty %}
+        <li>{% trans "Your cart is empty." %}</li>
+      {% endfor %}
+    </ul>
+
+    <p><strong>{% trans "Total" %}: {{ cart.get_total_price }}₴</strong></p>
+  </div>
+{% endblock %}
