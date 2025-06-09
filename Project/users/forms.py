@@ -7,10 +7,10 @@ from .models import CustomUser
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'last_name', 'email', 'phone_number']
+        fields = ['first_name', 'last_name', 'email', 'phone']
         labels = {
             'first_name': _("First name"),
             'last_name': _("Last name"),
             'email': _("Email"),
-            'phone_number': _("Phone number"),
+            'phone': _("Phone number"),
         }

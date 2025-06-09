@@ -9,7 +9,7 @@
     <ul>
       {% for item in cart_items %}
         <li>
-          {{ item.product.title }} — {{ item.quantity }} × {{ item.product.price }}₴ = {{ item.subtotal }}₴
+          {{ item.product.title }} — {{ item.product.price|floatformat:2 }} * {{ item.quantity }}₴ = {{ item.total_price }}₴
           <a href="{% url 'cart:cart_remove' item.product.id %}" class="btn btn-sm btn-danger ms-2">{% trans "Remove" %}</a>
         </li>
       {% endfor %}

@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+
 from products.models import Product
+from .cart_logic import Cart
 
 
 def cart_add(request, product_id):
@@ -20,22 +22,9 @@ def cart_remove(request, product_id):
 
 
 def cart_detail(request):
-    cart = request.session.get('cart', {})
-    product_ids = cart.keys()
-    products = Product.objects.filter(id__in=product_ids)
-    
-    cart_items = []
-    total = 0
-
-    for product in products:
-        quantity = cart[str(product.id)]['quantity']
-        subtotal = product.price * quantity
-        total += subtotal
-        cart_items.append({
-            'product': product,
-            'quantity': quantity,
-            'subtotal': subtotal
-        })
+    cart = Cart(request)
+    cart_items = list(cart)
+    total = cart.get_total_price()
 
     return render(request, 'cart/cart_detail.html', {
         'cart_items': cart_items,

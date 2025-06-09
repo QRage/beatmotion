@@ -2,9 +2,11 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from products.models import Product
+from users.models import CustomUser
 
 
 class Order(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -12,6 +14,21 @@ class Order(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('processing', 'Processing'),
+        ('shipped', 'Shipped'),
+        ('delivered', 'Delivered'),
+        ('cancelled', 'Cancelled'),
+    ]
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='pending',
+        verbose_name="Order status"
+    )
 
     def __str__(self):
         return f"Order #{self.id} by {self.first_name} {self.last_name}"

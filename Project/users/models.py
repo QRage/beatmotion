@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CustomUser(AbstractUser):
-    phone_number = models.CharField(
+    phone = models.CharField(
         max_length=20,
         blank=True,
         null=True,

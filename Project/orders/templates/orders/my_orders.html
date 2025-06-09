@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{% trans "My Orders" %}</h2>
+    <ul class="list-group">
+      {% for order in orders %}
+        <li class="list-group-item">
+          <strong>#{{ order.id }}</strong> —
+          {{ order.get_status_display }} —
+          {{ order.created|date:"Y-m-d H:i" }} —
+          <strong>{% trans "Total" %}:</strong> {{ order.get_total_cost }}₴
+        </li>      
+      {% empty %}
+        <li class="list-group-item">{% trans "You have no orders yet." %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
