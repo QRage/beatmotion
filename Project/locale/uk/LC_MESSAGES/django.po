@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 16:49+0300\n"
+"POT-Creation-Date: 2025-06-09 13:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,30 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-#: .\core\templates\core\home.html:6 .\templates\partials\navbar.html:12
+
+#: .\cart\templates\cart\cart_detail.html:6
+msgid "Shopping Cart"
+msgstr "Кошик"
+
+#: .\cart\templates\cart\cart_detail.html:13
+msgid "Remove"
+msgstr "Видалити"
+
+#: .\cart\templates\cart\cart_detail.html:17
+msgid "Total:"
+msgstr "Всього:"
+
+#: .\cart\templates\cart\cart_detail.html:19
+#: .\orders\templates\orders\checkout.html:23
+msgid "Your cart is empty."
+msgstr "Ваш кошик пустий."
+
+#: .\cart\templates\cart\cart_detail.html:23
+#: .\orders\templates\orders\checkout.html:6
+msgid "Checkout"
+msgstr "Оплата"
+
+#: .\core\templates\core\home.html:6 .\templates\partials\navbar.html:11
 msgid "Products"
 msgstr "Товари"
 
@@ -28,15 +51,103 @@ msgstr "Товари"
 msgid "No products available."
 msgstr "Нема доступних товарів."
 
+#: .\orders\forms.py:12 .\users\forms.py:12
+msgid "First name"
+msgstr "Ім'я"
+
+#: .\orders\forms.py:13 .\users\forms.py:13
+msgid "Last name"
+msgstr "Прізвище"
+
+#: .\orders\forms.py:14 .\users\forms.py:14
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: .\orders\forms.py:15 .\users\forms.py:15 .\users\models.py:11
+msgid "Phone number"
+msgstr "Телефон"
+
+#: .\orders\templates\orders\checkout.html:11
+msgid "Place Order"
+msgstr "Розмістити замовлення"
+
+#: .\orders\templates\orders\checkout.html:16
+msgid "Your Cart"
+msgstr "Ваш кошик"
+
+#: .\orders\templates\orders\checkout.html:27
+#: .\orders\templates\orders\my_orders.html:13
+msgid "Total"
+msgstr "Всього"
+
+#: .\orders\templates\orders\my_orders.html:6
+#: .\templates\partials\navbar.html:21
+msgid "My Orders"
+msgstr "Мої замовлення"
+
+#: .\orders\templates\orders\my_orders.html:16
+msgid "You have no orders yet."
+msgstr "У вас ще немає замовлень."
+
+#: .\orders\templates\orders\order_success.html:6
+msgid "Thank you for your order!"
+msgstr "Дякуємо за замовлення!"
+
+#: .\orders\templates\orders\order_success.html:7
+msgid "Your order has been successfully placed."
+msgstr "Ваше замовлення успішно розміщено."
+
+#: .\orders\templates\orders\order_success.html:8
+msgid "Order number"
+msgstr "Номер замовлення"
+
+#: .\orders\templates\orders\order_success.html:9
+msgid "Return to Shop"
+msgstr "Повернутися в магазин"
+
+#: .\products\forms.py:11 .\products\models.py:17 .\products\models.py:39
+#: .\products\templates\products\product_detail.html:10
+msgid "Category"
+msgstr "Категорія"
+
+#: .\products\forms.py:12
+msgid "Enter category name"
+msgstr "Введіть назву категорії"
+
+#: .\products\forms.py:26
+#, fuzzy
+#| msgid "Product List"
+msgid "Product images"
+msgstr "Список товарів"
+
+#: .\products\models.py:35
+msgid "Name"
+msgstr "Назва"
+
+#: .\products\models.py:36
+msgid "Slug"
+msgstr "Слаг"
+
+#: .\products\models.py:40 .\products\templates\products\category_list.html:5
+msgid "Categories"
+msgstr "Категорії"
+
 #: .\products\templates\products\add_product.html:6
+#: .\products\templates\products\add_product.html:11
 msgid "Add Product"
 msgstr "Додати продукт"
 
-#: .\products\templates\products\product_detail.html:19
+#: .\products\templates\products\product_detail.html:7
+#, fuzzy
+#| msgid "Add Product"
+msgid "Add to cart"
+msgstr "Додати продукт"
+
+#: .\products\templates\products\product_detail.html:28
 msgid "Price"
 msgstr "Ціна"
 
-#: .\products\templates\products\product_detail.html:20
+#: .\products\templates\products\product_detail.html:29
 msgid "Article"
 msgstr "Артикул"
 
@@ -44,22 +155,52 @@ msgstr "Артикул"
 msgid "Product List"
 msgstr "Список товарів"
 
-#: .\products\templates\products\product_list.html:12
+#: .\products\templates\products\product_list.html:16
 msgid "No products yet."
 msgstr "Ще нема товарів."
 
+#: .\products\templates\products\products_by_category.html:10
+#, fuzzy
+#| msgid "No products available."
+msgid "No products in this category."
+msgstr "Нема доступних товарів."
+
 #: .\templates\partials\footer.html:3
 msgid "All rights reserved."
-msgstr ""
+msgstr "Всі права захищені."
 
 #: .\templates\partials\navbar.html:4
 msgid "BeatMotion"
 msgstr ""
 
-#: .\templates\partials\navbar.html:9
+#: .\templates\partials\navbar.html:8
 msgid "Home"
 msgstr "Головна"
 
-#: .\templates\partials\navbar.html:15
+#: .\templates\partials\navbar.html:14
 msgid "Services"
 msgstr "Сервіси"
+
+#: .\templates\partials\navbar.html:17
+msgid "Cart"
+msgstr "Кошик"
+
+#: .\templates\partials\navbar.html:28
+msgid "Profile"
+msgstr "Профіль"
+
+#: .\templates\partials\navbar.html:29
+msgid "Logout"
+msgstr "Вийти"
+
+#: .\templates\partials\navbar.html:31
+msgid "Login with Google"
+msgstr "Увійти через Google"
+
+#: .\users\templates\users\profile.html:6
+msgid "User Profile"
+msgstr "Профіль користувача"
+
+#: .\users\templates\users\profile.html:10
+msgid "Save"
+msgstr "Зберегти"

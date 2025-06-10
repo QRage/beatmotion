@@ -16,6 +16,7 @@ urlpatterns += i18n_patterns(
     path('profile/', include('users.urls')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
+    path('', include('pages.urls')),
 )
 
 if settings.DEBUG:

@@ -36,6 +36,7 @@ CART_SESSION_ID = "cart"
 # Application definition
 
 INSTALLED_APPS = [
+    'pages',
     'orders',
     'cart',
     'users',

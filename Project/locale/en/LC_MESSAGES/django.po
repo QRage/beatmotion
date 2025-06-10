@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 16:49+0300\n"
+"POT-Creation-Date: 2025-06-09 13:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\core\templates\core\home.html:6 .\templates\partials\navbar.html:12
+
+#: .\cart\templates\cart\cart_detail.html:6
+msgid "Shopping Cart"
+msgstr ""
+
+#: .\cart\templates\cart\cart_detail.html:13
+msgid "Remove"
+msgstr ""
+
+#: .\cart\templates\cart\cart_detail.html:17
+msgid "Total:"
+msgstr ""
+
+#: .\cart\templates\cart\cart_detail.html:19
+#: .\orders\templates\orders\checkout.html:23
+msgid "Your cart is empty."
+msgstr ""
+
+#: .\cart\templates\cart\cart_detail.html:23
+#: .\orders\templates\orders\checkout.html:6
+msgid "Checkout"
+msgstr ""
+
+#: .\core\templates\core\home.html:6 .\templates\partials\navbar.html:11
 msgid "Products"
 msgstr ""
 
@@ -25,15 +48,99 @@ msgstr ""
 msgid "No products available."
 msgstr ""
 
+#: .\orders\forms.py:12 .\users\forms.py:12
+msgid "First name"
+msgstr ""
+
+#: .\orders\forms.py:13 .\users\forms.py:13
+msgid "Last name"
+msgstr ""
+
+#: .\orders\forms.py:14 .\users\forms.py:14
+msgid "Email"
+msgstr ""
+
+#: .\orders\forms.py:15 .\users\forms.py:15 .\users\models.py:11
+msgid "Phone number"
+msgstr ""
+
+#: .\orders\templates\orders\checkout.html:11
+msgid "Place Order"
+msgstr ""
+
+#: .\orders\templates\orders\checkout.html:16
+msgid "Your Cart"
+msgstr ""
+
+#: .\orders\templates\orders\checkout.html:27
+#: .\orders\templates\orders\my_orders.html:13
+msgid "Total"
+msgstr ""
+
+#: .\orders\templates\orders\my_orders.html:6
+#: .\templates\partials\navbar.html:21
+msgid "My Orders"
+msgstr ""
+
+#: .\orders\templates\orders\my_orders.html:16
+msgid "You have no orders yet."
+msgstr ""
+
+#: .\orders\templates\orders\order_success.html:6
+msgid "Thank you for your order!"
+msgstr ""
+
+#: .\orders\templates\orders\order_success.html:7
+msgid "Your order has been successfully placed."
+msgstr ""
+
+#: .\orders\templates\orders\order_success.html:8
+msgid "Order number"
+msgstr ""
+
+#: .\orders\templates\orders\order_success.html:9
+msgid "Return to Shop"
+msgstr ""
+
+#: .\products\forms.py:11 .\products\models.py:17 .\products\models.py:39
+#: .\products\templates\products\product_detail.html:10
+msgid "Category"
+msgstr ""
+
+#: .\products\forms.py:12
+msgid "Enter category name"
+msgstr ""
+
+#: .\products\forms.py:26
+msgid "Product images"
+msgstr ""
+
+#: .\products\models.py:35
+msgid "Name"
+msgstr ""
+
+#: .\products\models.py:36
+msgid "Slug"
+msgstr ""
+
+#: .\products\models.py:40 .\products\templates\products\category_list.html:5
+msgid "Categories"
+msgstr ""
+
 #: .\products\templates\products\add_product.html:6
+#: .\products\templates\products\add_product.html:11
 msgid "Add Product"
 msgstr ""
 
-#: .\products\templates\products\product_detail.html:19
+#: .\products\templates\products\product_detail.html:7
+msgid "Add to cart"
+msgstr ""
+
+#: .\products\templates\products\product_detail.html:28
 msgid "Price"
 msgstr ""
 
-#: .\products\templates\products\product_detail.html:20
+#: .\products\templates\products\product_detail.html:29
 msgid "Article"
 msgstr ""
 
@@ -41,8 +148,12 @@ msgstr ""
 msgid "Product List"
 msgstr ""
 
-#: .\products\templates\products\product_list.html:12
+#: .\products\templates\products\product_list.html:16
 msgid "No products yet."
+msgstr ""
+
+#: .\products\templates\products\products_by_category.html:10
+msgid "No products in this category."
 msgstr ""
 
 #: .\templates\partials\footer.html:3
@@ -53,10 +164,34 @@ msgstr ""
 msgid "BeatMotion"
 msgstr ""
 
-#: .\templates\partials\navbar.html:9
+#: .\templates\partials\navbar.html:8
 msgid "Home"
 msgstr ""
 
-#: .\templates\partials\navbar.html:15
+#: .\templates\partials\navbar.html:14
 msgid "Services"
+msgstr ""
+
+#: .\templates\partials\navbar.html:17
+msgid "Cart"
+msgstr ""
+
+#: .\templates\partials\navbar.html:28
+msgid "Profile"
+msgstr ""
+
+#: .\templates\partials\navbar.html:29
+msgid "Logout"
+msgstr ""
+
+#: .\templates\partials\navbar.html:31
+msgid "Login with Google"
+msgstr ""
+
+#: .\users\templates\users\profile.html:6
+msgid "User Profile"
+msgstr ""
+
+#: .\users\templates\users\profile.html:10
+msgid "Save"
 msgstr ""
