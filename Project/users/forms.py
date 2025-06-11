@@ -21,8 +21,9 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'last_name', 'email', 'phone']
+        fields = ['username', 'first_name', 'last_name', 'email', 'phone']
         labels = {
+            'username': _("Username"),
             'first_name': _("First name"),
             'last_name': _("Last name"),
             'email': _("Email"),
