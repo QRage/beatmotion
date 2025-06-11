@@ -13,7 +13,7 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('products/', include('products.urls')),
-    path('profile/', include('users.urls')),
+    path('profile/', include('users.urls', namespace='users')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('', include('pages.urls')),
