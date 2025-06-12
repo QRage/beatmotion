@@ -20,6 +20,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
@@ -27,6 +28,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("GOOGLE_OAUTH2_CLIENT_ID")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv("GOOGLE_OAUTH2_SECRET")
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("FACEBOOK_APP_ID")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("FACEBOOK_APP_SECRET")
+SOCIAL_AUTH_TWITTER_KEY = os.getenv("TWITTER_API_KEY")
+SOCIAL_AUTH_TWITTER_SECRET = os.getenv("TWITTER_API_KEY_SECRET")
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'users:profile'
