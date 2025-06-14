@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from adminsortable2.admin import SortableInlineAdminMixin, SortableAdminBase
 
 from .models import Category, Product, ProductAttributeValue, ProductAttribute, ProductImage
 
@@ -15,12 +16,12 @@ class ProductAttributeAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 
-class ProductImageInline(admin.TabularInline):
+class ProductImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ProductImage
     extra = 1
     readonly_fields = ['preview']
-    fields = ['image', 'preview', 'order']
-    ordering = ['order']
+    fields = ['image', 'preview']
+    show_change_link = False
     
     def preview(self, obj):
         if obj.image:
@@ -30,7 +31,7 @@ class ProductImageInline(admin.TabularInline):
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(SortableAdminBase, admin.ModelAdmin):
     inlines = [ProductAttributeValueInline, ProductImageInline]
 
 

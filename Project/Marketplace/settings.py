@@ -42,6 +42,7 @@ CART_SESSION_ID = "cart"
 # Application definition
 
 INSTALLED_APPS = [
+    'adminsortable2',
     'pages',
     'orders',
     'cart',
