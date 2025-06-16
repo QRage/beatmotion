@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+
 {% block content %}
   <div class="container mt-4">
     <h2>{% trans "Products" %}</h2>
@@ -8,14 +9,14 @@
       {% for product in products %}
       <div class="col-md-4 mb-3">
         <div class="card h-100">
-          <a href="{% url 'product_detail' product.pk %}">
+          <a href="{% url 'products:product_detail' product.pk %}">
             {% if product.images.first %}
               <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="{{ product.title }}">
             {% endif %}
           </a>
           <div class="card-body">
             <h5 class="card-title">
-              <a href="{% url 'product_detail' product.pk %}" class="text-decoration-none">
+              <a href="{% url 'products:product_detail' product.pk %}" class="text-decoration-none">
                 {{ product.title }}
               </a>
             </h5>

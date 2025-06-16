@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load product_extras %}
+
+
+{% block content %}
+  <h2>Product Comparison</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        {% for p in products %}
+          <th>{{ p.product.title }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for attr in attribute_names %}
+        <tr>
+          <td>{{ attr }}</td>
+          {% for p in products %}
+            <td>
+              {{ p.attributes|get_item:attr|default:"—" }}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

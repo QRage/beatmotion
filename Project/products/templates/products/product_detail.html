@@ -5,10 +5,17 @@
 <div class="container mt-4">
   <h2>{{ product.title }}</h2>
   <a href="{% url 'cart:cart_add' product.id %}" class="btn btn-sm btn-outline-primary">{% trans "Add to cart" %}</a>
+  {% with comparison_list=request.session.comparison|default:'' %}
+    {% if product.id in comparison_list %}
+      <a href="{% url 'products:remove_from_comparison' product.id %}">{% trans "Remove" %}</a>
+    {% else %}
+      <a href="{% url 'products:add_to_comparison' product.id %}">{% trans "Add to compare" %}</a>
+    {% endif %}
+  {% endwith %}
   {% if product.category %}
     <p>
       {% trans "Category" %}: 
-      <a href="{% url 'products_by_category' product.category.slug %}">
+      <a href="{% url 'products:products_by_category' product.category.slug %}">
         {{ product.category.name }}
       </a>
     </p>

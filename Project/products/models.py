@@ -1,5 +1,3 @@
-# products/models.py
-
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 from django.db.models import Max
@@ -71,9 +69,9 @@ class ProductAttribute(models.Model):
 
 
 class ProductAttributeValue(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='attributes')
-    attribute = models.ForeignKey(ProductAttribute, on_delete=models.CASCADE, related_name='values')
-    value = models.CharField(max_length=255, verbose_name=_("Attribute Value"))
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="attributes")
+    attribute = models.ForeignKey(ProductAttribute, on_delete=models.CASCADE)
+    value = models.CharField(max_length=255)
 
     class Meta:
         unique_together = ('product', 'attribute')

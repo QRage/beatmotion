@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import ProductForm, MultiImageForm
 from .models import ProductImage, Product, Category
+from .comparison import add_to_comparison, remove_from_comparison
 
 
 @login_required
@@ -67,3 +68,35 @@ def products_by_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     products = category.products.all()
     return render(request, 'products/products_by_category.html', {'category': category, 'products': products})
+
+
+def product_comparison_view(request):
+    ids = request.session.get('comparison', [])
+    products = Product.objects.filter(id__in=ids).prefetch_related('attributes__attribute')
+
+    attribute_names = set()
+    product_data = []
+
+    for p in products:
+        data = {}
+        for val in p.attributes.all():
+            data[val.attribute.name] = val.value
+            attribute_names.add(val.attribute.name)
+        product_data.append({'product': p, 'attributes': data})
+
+    attribute_names = sorted(attribute_names)
+
+    return render(request, 'products/compare.html', {
+        'products': product_data,
+        'attribute_names': attribute_names,
+    })
+
+
+def add_to_comparison_view(request, product_id):
+    add_to_comparison(request, product_id)
+    return redirect(request.META.get('HTTP_REFERER', 'products:product_list'))
+
+
+def remove_from_comparison_view(request, product_id):
+    remove_from_comparison(request, product_id)
+    return redirect(request.META.get('HTTP_REFERER', 'products:product_list'))

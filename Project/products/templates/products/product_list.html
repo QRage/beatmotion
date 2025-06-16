@@ -7,7 +7,7 @@
     {% for product in products %}
       <div>
         <strong>
-          <a href="{% url 'product_detail' product.id %}">
+          <a href="{% url 'products:product_detail' product.id %}">
             {{ product.title }}
           </a>
         </strong> — {{ product.price }}₴
