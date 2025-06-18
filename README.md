@@ -2,7 +2,7 @@
 A Django-based project for managing products, orders, and user interactions, including social authentication.
 
 ## Status
-🚧 Work in progress. Version v0.1.0.
+🚧 Work in progress. Version v0.2.0.
 
 ## Features
 BeatMotion is an evolving web platform designed to provide a seamless experience for managing products, handling customer orders, and facilitating user interactions. I build a user-friendly system where you can:

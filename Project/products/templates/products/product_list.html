@@ -16,4 +16,31 @@
       <p>{% trans "No products yet." %}</p>
     {% endfor %}
   </div>
+
+  <!-- Pagination Block -->
+  {% if products.has_other_pages %}
+    <div class="d-flex justify-content-center align-items-center gap-2 mt-4 flex-wrap">
+
+      {% if products.has_previous %}
+        <a href="?page=1" class="btn btn-outline-secondary">{% trans "First" %}</a>
+        <a href="?page={{ products.previous_page_number }}" class="btn btn-outline-secondary">{% trans "Previous" %}</a>
+      {% else %}
+        <button class="btn btn-outline-secondary" disabled>{% trans "First" %}</button>
+        <button class="btn btn-outline-secondary" disabled>{% trans "Previous" %}</button>
+      {% endif %}
+
+      <span class="btn btn-outline-dark disabled">
+        {{ products.number }} / {{ products.paginator.num_pages }}
+      </span>
+
+      {% if products.has_next %}
+        <a href="?page={{ products.next_page_number }}" class="btn btn-outline-secondary">{% trans "Next" %}</a>
+        <a href="?page={{ products.paginator.num_pages }}" class="btn btn-outline-secondary">{% trans "Last" %}</a>
+      {% else %}
+        <button class="btn btn-outline-secondary" disabled>{% trans "Next" %}</button>
+        <button class="btn btn-outline-secondary" disabled>{% trans "Last" %}</button>
+      {% endif %}
+
+    </div>
+  {% endif %}
 {% endblock %}
